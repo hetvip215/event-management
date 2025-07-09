@@ -1,19 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import Landing from "./pages/Landing.jsx";
+import AdminDashboard from "./pages/AdminDashboard.jsx";
+import UserDashboard from "./pages/UserDashboard.jsx"
+// import Landing from "./pages/Landing"; // if needed later
 
-function App() {
-  
-
+const App = () => {
   return (
-    <>
-      <div className='text-6xl'>
-        circle up website...
-      </div>
-      
-    </>
-  )
-}
+    <Routes>
+      {/* To be added later */}
+      <Route path="/" element={<Landing />} /> 
 
-export default App
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+
+      <Route path="/admin-dashboard" element={<AdminDashboard />} />
+      <Route path="/user-dashboard" element={<UserDashboard />} /> 
+    </Routes>
+  );
+};
+
+export default App;
