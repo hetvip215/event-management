@@ -34,4 +34,15 @@ router.post("/create", verifyJWT, upload.single("image"), async (req, res) => {
   }
 });
 
+
+router.get("/admin", verifyJWT, async (req, res) => {
+    try {
+      const events = await Event.find({ createdBy: req.user.id });
+      res.status(200).json({ events });
+    } catch (error) {
+      console.error("Error fetching admin events:", error);
+      res.status(500).json({ message: "Failed to fetch events" });
+    }
+  });
+  
 export default router;
